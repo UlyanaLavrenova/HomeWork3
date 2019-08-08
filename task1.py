@@ -42,6 +42,30 @@ class Book:
     def get_type_of_binding(self):
         return self.__type_of_binding
 
+    def set_id(self, id):
+        self.__id = id
+
+    def set_name(self, name):
+        self.__name =  name
+
+    def set_author(self, author):
+        self.__author = author
+
+    def set_publisher(self, publisher):
+        self.__publisher = publisher
+
+    def set_year(self, year):
+        self.__year = year
+
+    def set_num_of_pages(self, num_of_pages):
+        self.__num_of_pages = num_of_pages
+
+    def set_price(self, price):
+        self.__price = price
+
+    def set_type_of_binding(self, type_of_binding):
+        self.__type_of_binding = type_of_binding
+
     def get_all(self):
         print("Id - "+str(self.__id),
               ", название - ", self.__name,
