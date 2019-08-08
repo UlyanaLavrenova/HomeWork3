@@ -1,4 +1,3 @@
-#var 7
 class Book:
     __id = 0
     __name = ''
@@ -8,6 +7,7 @@ class Book:
     __num_of_pages = 0
     price = 0
     type_of_binding = ''
+    __count = 0
 
     def __init__(self, id, name, author, publisher, year, num_of_pages, price, type_of_binding):
         self.__id = id
@@ -18,6 +18,7 @@ class Book:
         self.__num_of_pages = num_of_pages
         self.__price = price
         self.__type_of_binding = type_of_binding
+        Book.__count += 1
 
     def get_id(self):
         return self.__id
@@ -43,6 +44,16 @@ class Book:
     def get_type_of_binding(self):
         return self.__type_of_binding
 
+    def get_all(self):
+        print("Id - "+str(self.__id),
+              ", название - ", self.__name,
+              ", автор - ", self.__author,
+              ", издательство - ", self.__publisher,
+              ", год издания - ", self.__year,
+              ", количество страниц - ", self.__num_of_pages,
+              ", цена - ", self.__price, " рублей",
+              ", тип переплета - ", self.__type_of_binding)
+
     def set_id(self, id):
         self.__id = id
 
@@ -67,16 +78,6 @@ class Book:
     def set_type_of_binding(self, type_of_binding):
         self.__type_of_binding = type_of_binding
 
-    def get_all(self):
-        print("Id - "+str(self.__id),
-              ", название - ", self.__name,
-              ", автор - ", self.__author,
-              ", издательство - ", self.__publisher,
-              ", год издания - ", self.__year,
-              ", количество страниц - ", self.__num_of_pages,
-              ", цена - ", self.__price, " рублей",
-              ", тип переплета - ", self.__type_of_binding)
-
 
 books = [
     Book(1, 'Алиса в стране чудес', 'Льюис Кэррол', 'Народная асвета', 2018, 124, 15, 'мягкий переплет'),
@@ -100,18 +101,26 @@ def books_of_author():
             print(str(j) + " - " + books[i].get_author() + "")
             j += 1
     a = int(input())
+    count = 0
     for i in range(len(books)):
         if books[i].get_author() == author.get(a):
             books[i].get_all()
+            count += 1
+    if count == 0:
+        print("Таких книг нет")
     print("\n")
 
 
 def books_under_year():
     print("Книги, выпущенные после какого года, вы хотите увидеть? ")
     a = int(input())
+    count = 0
     for i in range(len(books)):
         if books[i].get_year() > a:
             books[i].get_all()
+            count += 1
+    if count == 0:
+        print("Таких книг нет")
     print("\n")
 
 
@@ -132,4 +141,3 @@ while True:
     else:
         print("Введите верное значение")
         continue
-
