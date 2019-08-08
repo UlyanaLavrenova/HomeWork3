@@ -1,3 +1,4 @@
+#var 7
 class Book:
     __id = 0
     __name = ''
