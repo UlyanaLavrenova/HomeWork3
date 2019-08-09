@@ -58,7 +58,7 @@ class Book:
         self.__id = id
 
     def set_name(self, name):
-        self.__name =  name
+        self.__name = name
 
     def set_author(self, author):
         self.__author = author
